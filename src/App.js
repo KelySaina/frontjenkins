@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Kely Saina
+          KS
         </a>
       </header>
     </div>
