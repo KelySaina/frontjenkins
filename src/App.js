@@ -15,9 +15,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          KS latest version
+          KS latest
         </a>
-        <a href='https://google.com' >Go to Google</a>
+        <button onClick={alert("OK")}>OK</button>
       </header>
     </div>
   );
