@@ -41,7 +41,7 @@ pipeline {
                from: 'nalyvalisoa0510@gmail.com'
     }
     always {
-      emailext body: 'The pipeline failed. Please check the Jenkins console output for details: https://jenkins-ks.serveo.net/job/$PROJECT_NAME/console',
+      emailext body: 'The pipeline failed. Please check the Jenkins console output for details: https://jenkins-ks.serveo.net/job/$BUILD_NUMBER/$PROJECT_NAME/console',
                subject: 'Pipeline Failure',
                to: 'kelysaina@gmail.com',
                from: 'nalyvalisoa0510@gmail.com'
