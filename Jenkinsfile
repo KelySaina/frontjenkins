@@ -23,6 +23,7 @@ pipeline {
         }
       }
     }
+
     stage('Deploy') {
       steps {
         script {
@@ -31,5 +32,17 @@ pipeline {
       }
     }
   }
-}
 
+  post {
+    success {
+      emailext body: 'The pipeline succeeded. Here is the link to the build: <a href="https://front-ks.serveo.net">FRONT|KS</a>',
+               subject: 'Pipeline Success',
+               to: 'kelysaina@gmail.com'
+    }
+    failure {
+      emailext body: 'The pipeline failed. Please check the Jenkins console output for details.',
+               subject: 'Pipeline Failure',
+               to: 'kelysaina@gmail.com'
+    }
+  }
+}
