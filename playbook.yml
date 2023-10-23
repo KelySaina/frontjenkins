@@ -1,24 +1,20 @@
 ---
-vars:
-  build_src_path: "/var/lib/jenkins/workspace/frontjenkins/build/"
-  build_dest_path: "/home/thyler/frontjenkins"
+- name: Deploy Your Node.js Application
+  hosts: nodejs_servers
+  become: yes
 
-tasks:
-  - name: Deploy Your Node.js Application
-    hosts: nodejs_servers
-    become: yes
-    tasks:
-      - name: Copy application build files 
-        synchronize:
-          src: "{{ build_src_path }}"
-          dest: "{{ build_dest_path }}"
-          delete: yes
-          recursive: yes
-        become: no
+  tasks:
+    - name: Copy application build files 
+      synchronize:
+        src: "/var/lib/jenkins/workspace/frontjenkins/build/"
+        dest: "/home/thyler/frontjenkins"
+        delete: yes
+        recursive: yes
+      become: no
 
-  - name: Finished
-    hosts: nodejs_servers
-    become: yes
-    tasks:
-      - name: Ansible finished
-        command: echo Deployed
+- name: Finished
+  hosts: nodejs_servers
+  become: yes
+  tasks:
+    - name: Ansible finished
+      command: echo Deployed
