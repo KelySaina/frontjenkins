@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          KS latest
+          KS latest version
         </a>
         <a href='https://google.com' >Go to Google</a>
       </header>
