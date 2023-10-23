@@ -1,6 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 
+function showAlert() {
+  alert("OK");
+}
+
 function App() {
   return (
     <div className="App">
@@ -17,7 +21,7 @@ function App() {
         >
           KS latest
         </a>
-        <button onClick={alert("OK")}>OK</button>
+        <button onClick={showAlert}>OK</button>
       </header>
     </div>
   );
