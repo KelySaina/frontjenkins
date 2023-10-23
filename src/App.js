@@ -21,7 +21,7 @@ function App() {
         >
           KS latest
         </a>
-        <button onClick={showAlert}>OK</button>
+        <button onClick={showAlert} style={{ background: 'cyan', width: '150px' }} >OK</button>
       </header>
     </div>
   );
