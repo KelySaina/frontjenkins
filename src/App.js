@@ -2,7 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 
 function showAlert() {
-  alert("OK ok");
+  alert("OK");
+  /*const para = document.createElement("p")
+  para.textContent = "Test jenkins"
+  document.getElementById("paras").appendChild(para)*/
 }
 
 function App() {
@@ -19,9 +22,10 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          KS latest
+          React App
         </a>
-        <button onClick={showAlert} style={{ background: 'cyan', width: '150px' }} >OK</button>
+        <button onClick={showAlert} style={{ background: 'cyan', width: '150px', height: '50px', margin: '10px', border: 'none', borderRadius: '5px' }} >OK</button>
+        <div id='paras'></div>
       </header>
     </div>
   );
