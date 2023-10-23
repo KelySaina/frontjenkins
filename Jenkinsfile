@@ -35,13 +35,13 @@ pipeline {
 
   post {
     success {
-      emailext body: 'The pipeline succeeded. Here is the link to the build: <a href="https://front-ks.serveo.net">FRONT|KS</a>',
+      emailext body: 'The pipeline succeeded. Here is the link to the build: https://front-ks.serveo.net',
                subject: 'Pipeline Success',
                to: 'kelysaina@gmail.com',
                from: 'nalyvalisoa0510@gmail.com'
     }
     failure {
-      emailext body: 'The pipeline failed. Please check the Jenkins console output for details.',
+      emailext body: 'The pipeline failed. Please check the Jenkins console output for details: $BUILD_URL/console',
                subject: 'Pipeline Failure',
                to: 'kelysaina@gmail.com',
                from: 'nalyvalisoa0510@gmail.com'
