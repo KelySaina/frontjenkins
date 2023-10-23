@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function showAlert() {
-  alert("OK");
+  alert("OK ok");
 }
 
 function App() {
