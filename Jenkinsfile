@@ -17,7 +17,7 @@ pipeline {
       steps {
         script {
           // Install dependencies
-          sh 'npm install'
+          //sh 'npm install'
 
           sh 'npm run build'
         }
@@ -26,10 +26,10 @@ pipeline {
     stage('Deploy') {
       steps {
         script {
-          sh 'sshpass -p "k" scp -r build/ thyler@192.168.57.115:~/frontjenkins/'
+          sh 'ansible-playbook -i inventory.ini playbook.yml'
         }
       }
     }
-
+  }
 }
 
