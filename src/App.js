@@ -17,6 +17,7 @@ function App() {
         >
           KS latest
         </a>
+        <a href='https://google.com' >Go to Google</a>
       </header>
     </div>
   );
