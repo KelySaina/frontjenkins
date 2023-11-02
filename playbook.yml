@@ -31,19 +31,6 @@
         name: service_3000
         enabled: yes
         state: started
-    
-    - name: Create redirect file
-      template:
-        src: service_redirect_3000.j2  # Create a Jinja2 template for your service file
-        dest: /etc/systemd/system/service_redirect_3000.service
-      notify:
-        - Reload systemd
-
-    - name: Start and enable redirect
-      systemd:
-        name: service_redirect_3000
-        enabled: yes
-        state: started
 
   handlers:
     - name: Reload systemd
