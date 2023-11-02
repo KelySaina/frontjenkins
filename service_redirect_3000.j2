@@ -1,0 +1,11 @@
+[Unit]
+Description=Your Service Description
+
+[Service]
+ExecStart=/usr/bin/autossh -M 0 -o StrictHostKeyChecking=no -R domain:80:localhost:3000 serveo.net
+User=ks
+Group=ks
+WorkingDirectory=/home/ks
+
+[Install]
+WantedBy=multi-user.target
