@@ -35,7 +35,7 @@
     - name: Create redirect file
       template:
         src: service_redirect_3000.j2  # Create a Jinja2 template for your service file
-        dest: /etc/systemd/system/service_3000.service
+        dest: /etc/systemd/system/service_redirect_3000.service
       notify:
         - Reload systemd
 
