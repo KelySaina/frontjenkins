@@ -2,10 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 
 function showAlert() {
-  //alert("OK");
-  const para = document.createElement("p")
+  alert("OK");
+  /*const para = document.createElement("p")
   para.textContent = "Test jenkins"
-  document.getElementById("paras").appendChild(para)
+  document.getElementById("paras").appendChild(para)*/
 }
 
 function App() {

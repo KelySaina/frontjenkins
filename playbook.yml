@@ -1,20 +1,38 @@
 ---
-- name: Deploy Your Node.js Application
+- name: Clone Repository and Configure Node.js App
   hosts: nodejs_servers
   become: yes
 
   tasks:
-    - name: Copy application build files 
-      synchronize:
-        src: "/var/lib/jenkins/workspace/frontjenkins/build/"
-        dest: "/home/thyler/frontjenkins"
-        delete: yes
-        recursive: yes
-      become: no
+    - name: Clone Git Repository
+      git:
+        repo: https://github.com/KelySaina/frontjenkins.git
+        dest: /home/thyler/odataProjects/frontjenkins
 
-- name: Finished
-  hosts: nodejs_servers
-  become: yes
-  tasks:
-    - name: Ansible finished
-      command: echo Deployed
+    - name: Install Node.js dependencies
+      command: npm install
+      args:
+        chdir: /home/thyler/odataProjects/frontjenkins
+
+    - name: Build Node.js App
+      command: npm run build
+      args:
+        chdir: /home/thyler/odataProjects/frontjenkins
+    
+    - name: Create service file
+      template:
+        src: service_3000.j2  # Create a Jinja2 template for your service file
+        dest: /etc/systemd/system/service_3000.service
+      notify:
+        - Reload systemd
+
+    - name: Start and enable service
+      systemd:
+        name: service_3000
+        enabled: yes
+        state: started
+
+  handlers:
+    - name: Reload systemd
+      systemd:
+        daemon_reload: yes
